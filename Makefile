@@ -1,6 +1,7 @@
 
 oneway: oneway.o cencode.o cdecode.o
 	g++ -o oneway oneway.o cencode.o cdecode.o -lssl -lcrypto
+	g++ -shared -o oneway.dll oneway.o cencode.o cdecode.o -lssl -lcrypto
 
 oneway.o: oneway.cpp
 	g++ -Wall -fexceptions -g -c -I libb64-1.2/include  oneway.cpp -o oneway.o
